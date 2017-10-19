@@ -1,0 +1,8 @@
+name: OmniWorlds
+main: net.omniblock.worlds.OmniWorlds
+depend: [OmniNetwork]
+load: STARTUP
+author: Omniblock Developers Team
+version: 1.5.0
+description: Plugin general para la administración de Mundos.
+website: www.omniblock.net
