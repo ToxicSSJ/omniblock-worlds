@@ -39,7 +39,6 @@ public class WorldGetterHandler {
 			Worlds.RESET.prepareWorld(world); 
 		
 		return world;
-		
 	}
 	
 }
