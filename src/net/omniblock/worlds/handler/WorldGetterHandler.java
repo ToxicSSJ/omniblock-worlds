@@ -12,8 +12,14 @@ public class WorldGetterHandler {
 
 	public World getWorld(String name){
 		
+		System.out.println("GETWORLD -> REQUESTING WORLD " + name);
+		
+		World w = Bukkit.getWorld(name);
+		if(w != null)
+			return w;
+		
 		for(World world : Bukkit.getWorlds()){
-			if(world.getName() == name) return world;
+			if(world.getName().equalsIgnoreCase(name)) return world;
 		}
 		
 		WorldCreator creator = new WorldCreator(name);
@@ -27,8 +33,14 @@ public class WorldGetterHandler {
 	
 	public World getWorldSafe(String name){
 		
+		System.out.println("GETWORLDSAFE -> REQUESTING WORLD " + name);
+		
+		World w = Bukkit.getWorld(name);
+		if(w != null)
+			return w;
+		
 		for(World world : Bukkit.getWorlds()){
-			if(world.getName() == name) return world;
+			if(world.getName().equalsIgnoreCase(name)) return world;
 		}
 		
 		World world = Worlds.GETTER.getWorld(name);

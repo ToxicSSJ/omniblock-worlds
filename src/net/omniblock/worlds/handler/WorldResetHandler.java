@@ -29,17 +29,24 @@ public class WorldResetHandler {
 	
 	public void prepareWorld(World world){
 		
+		prepareWorld(world.getName());
+		return;
+		
+	}
+	
+	public void prepareWorld(String world){
+		
 		File backupFolder = BACKUP_FOLDER;
 		
 		if(!backupFolder.exists()) {
 			backupFolder.mkdirs();
 		}
 		
-		File backupWorldFolder = new File(".", world.getName());
-		File backupWorldDestFolder = new File(backupFolder, world.getName());
+		File backupWorldFolder = new File(".", world);
+		File backupWorldDestFolder = new File(backupFolder, world);
 		
 		if(!backupWorldFolder.exists()) {
-			throw new IllegalArgumentException("La carpeta del mundo '" + world.getName() + "' no fue encontrado en: " + backupWorldFolder.getAbsolutePath());
+			throw new IllegalArgumentException("La carpeta del mundo '" + world + "' no fue encontrado en: " + backupWorldFolder.getAbsolutePath());
 		}
 		
 		FileUtils.copyDirectory(backupWorldFolder, backupWorldDestFolder);
